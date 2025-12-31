@@ -6,7 +6,7 @@
 
   :pedantic? :abort
 
-  :parent-project {:coords [org.openvoxproject/clj-parent "7.4.1-SNAPSHOT"]
+  :parent-project {:coords [org.openvoxproject/clj-parent "7.5.0"]
                    :inherit [:managed-dependencies]}
 
   :dependencies [[org.clojure/clojure]
@@ -16,7 +16,7 @@
 
   :plugins [[lein-parent "0.3.7"]]
 
-  :deploy-repositories [["clojars" {:url "https://clojars.org/repo"
+  :deploy-repositories [["releases" {:url "https://clojars.org/repo"
                                      :username :env/CLOJARS_USERNAME
                                      :password :env/CLOJARS_PASSWORD
                                      :sign-releases false}]]
