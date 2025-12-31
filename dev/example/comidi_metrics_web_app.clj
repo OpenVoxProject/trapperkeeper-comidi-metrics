@@ -120,7 +120,7 @@
       (log/infof "Registering status callback for Example Web Service")
       (register-status
         "example-web-service"
-        (status/get-artifact-version "puppetlabs" "trapperkeeper-metrics")
+        (status/get-artifact-version "org.openvoxproject" "trapperkeeper-metrics")
         status-version
         (create-status-callback-fn http-metrics app-metrics))
       (log/infof "Registering Example Web Service at '%s'" path)
