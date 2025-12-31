@@ -1,17 +1,15 @@
 ## `trapperkeeper-comidi-metrics`
 
-[![Build Status](https://travis-ci.org/puppetlabs/trapperkeeper-comidi-metrics.svg?branch=master)](https://travis-ci.org/puppetlabs/trapperkeeper-comidi-metrics)
-
-[![Clojars Project](http://clojars.org/puppetlabs/trapperkeeper-comidi-metrics/latest-version.svg)](http://clojars.org/puppetlabs/trapperkeeper-comidi-metrics)
+[![Clojars Project](http://clojars.org/org.openvoxproject/trapperkeeper-comidi-metrics/latest-version.svg)](http://clojars.org/org.openvoxproject/trapperkeeper-comidi-metrics)
 
 `trapperkeeper-comidi-metrics` is a library that provides Ring middleware to
 automatically track metrics for requests to all of your
 [`comidi`](https://github.com) HTTP routes.
 
 To get the most value out of this library, use it in concert with
-[trapperkeeper-metrics](https://github.com/puppetlabs/trapperkeeper-metrics)
+[trapperkeeper-metrics](https://github.com/openvoxproject/trapperkeeper-metrics)
 (to take advantage of the built-in ring-middleware for tracking HTTP metrics)
-and the [Trapperkeeper Status Service](https://github.com/puppetlabs/trapperkeeper-status)
+and the [Trapperkeeper Status Service](https://github.com/openvoxproject/trapperkeeper-status)
 (to expose the most useful metrics data from your app via HTTP).
 
 ### Quick Start
@@ -39,7 +37,7 @@ For more info about the HTTP metrics, see the [comidi metrics documentation](./d
 `trapperkeeper-comidi-metrics` contains a Ring middleware that can be used in concert with a `MetricRegistry`
 (from the [dropwizard Metrics library](https://dropwizard.github.io/metrics)) to
 automatically track metrics for all of your `comidi` routes.  This can be used in conjunction
-with the [Trapperkeeper Status Service](https://github.com/puppetlabs/trapperkeeper-status)
+with the [Trapperkeeper Status Service](https://github.com/openvoxproject/trapperkeeper-status)
 to easily expose debugging / telemetry information via HTTP.
 
 Here's an example of how to use the Ring middleware:
@@ -129,7 +127,7 @@ across all routes, and `:other`, which tracks metrics for requests that did not
 match any of your routes.
 
 For a complete example that illustrates how to expose the HTTP metrics data
-via the [Trapperkeeper Status Service](https://github.com/puppetlabs/trapperkeeper-status),
+via the [Trapperkeeper Status Service](https://github.com/openvoxproject/trapperkeeper-status),
 see the [source code for the sample web application](../dev/example/comidi_metrics_web_app.clj).
 
 ## License
@@ -138,6 +136,4 @@ See [LICENSE](LICENSE).
 
 ## Support
 
-We use the [Trapperkeeper project on
-JIRA](https://tickets.puppetlabs.com/browse/TK) for tickets on this project,
-although Github issues are welcome too.
+GitHub issues and PRs are welcome! Additionally, drop us a line in [the Vox Pupuli Slack](https://voxpupuli.org/connect/).
