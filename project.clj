@@ -8,7 +8,7 @@
 
   :pedantic? :abort
 
-  :parent-project {:coords [org.openvoxproject/clj-parent "7.5.0"]
+  :parent-project {:coords [org.openvoxproject/clj-parent "7.5.1"]
                    :inherit [:managed-dependencies]}
 
   :dependencies [[org.clojure/clojure]
@@ -28,8 +28,8 @@
                                   [org.openvoxproject/kitchensink :classifier "test"]
                                   [org.openvoxproject/trapperkeeper-status]
                                   [org.openvoxproject/http-client]
-                                  [org.bouncycastle/bcpkix-jdk15on]
-                                  [org.openvoxproject/trapperkeeper-webserver-jetty9]]}}
+                                  [org.bouncycastle/bcpkix-jdk18on]
+                                  [org.openvoxproject/trapperkeeper-webserver-jetty10]]}}
 
   :aliases {"example" ["run" "-m" "example.comidi-metrics-web-app"]
             "example-data" ["run" "-m" "example.traffic-generator"]})
