@@ -1,6 +1,8 @@
 (defproject org.openvoxproject/trapperkeeper-comidi-metrics "0.1.3-SNAPSHOT"
   :description "Comidi/HTTP Metrics for Trapperkeeper"
   :url "http://github.com/openvoxproject/trapperkeeper-comidi-metrics"
+  :license {:name "Apache-2.0"
+            :url "https://www.apache.org/licenses/LICENSE-2.0.txt"}
 
   :min-lein-version "2.9.1"
 
