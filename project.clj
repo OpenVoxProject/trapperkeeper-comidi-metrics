@@ -1,4 +1,4 @@
-(defproject org.openvoxproject/trapperkeeper-comidi-metrics "0.1.4-SNAPSHOT"
+(defproject org.openvoxproject/trapperkeeper-comidi-metrics "1.0.0-SNAPSHOT"
   :description "Comidi/HTTP Metrics for Trapperkeeper"
   :url "http://github.com/openvoxproject/trapperkeeper-comidi-metrics"
   :license {:name "Apache-2.0"
@@ -8,7 +8,7 @@
 
   :pedantic? :abort
 
-  :parent-project {:coords [org.openvoxproject/clj-parent "7.5.1"]
+  :parent-project {:coords [org.openvoxproject/clj-parent "7.6.3"]
                    :inherit [:managed-dependencies]}
 
   :dependencies [[org.clojure/clojure]
@@ -16,7 +16,7 @@
                  [org.openvoxproject/trapperkeeper-metrics]
                  [org.openvoxproject/comidi]]
 
-  :plugins [[lein-parent "0.3.7"]]
+  :plugins [[lein-parent "0.3.9"]]
 
   :deploy-repositories [["releases" {:url "https://clojars.org/repo"
                                      :username :env/CLOJARS_USERNAME
