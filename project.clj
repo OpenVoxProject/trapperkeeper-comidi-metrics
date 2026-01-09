@@ -13,7 +13,7 @@
   ;; defined under :dependencies ends up causing an error due to :pedantic? :abort,
   ;; because it is a dep of a dep with a different version, move it here.
   :managed-dependencies [[org.clojure/clojure "1.12.4"]
-                         [ring/ring-codec "1.1.2"]]
+                         [ring/ring-codec "1.3.0"]]
 
   :dependencies [[org.clojure/clojure]
                  [prismatic/schema "1.1.12"]
