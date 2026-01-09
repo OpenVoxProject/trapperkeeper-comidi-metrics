@@ -13,7 +13,11 @@
   ;; defined under :dependencies ends up causing an error due to :pedantic? :abort,
   ;; because it is a dep of a dep with a different version, move it here.
   :managed-dependencies [[org.clojure/clojure "1.12.4"]
-                         [ring/ring-codec "1.3.0"]]
+                         [ring/ring-codec "1.3.0"]
+                         [clj-time "0.15.2"]
+                         [cheshire "5.13.0"]
+                         [org.clojure/tools.logging "1.3.1"]
+                         [io.dropwizard.metrics/metrics-core "3.2.6"]]
 
   :dependencies [[org.clojure/clojure]
                  [prismatic/schema "1.4.1"]
@@ -27,7 +31,7 @@
 
   :profiles {:dev {:source-paths ["dev"]
                    :dependencies [[org.openvoxproject/trapperkeeper "4.3.0":classifier "test"]
-                                  [org.openvoxproject/kitchensink "3.5.3" :classifier "test"]
+                                  [org.openvoxproject/kitchensink "3.5.4" :classifier "test"]
                                   [org.openvoxproject/trapperkeeper-status "1.3.0"]
                                   [org.openvoxproject/http-client "2.2.0"]
                                   [org.bouncycastle/bcpkix-jdk18on "1.83"]
