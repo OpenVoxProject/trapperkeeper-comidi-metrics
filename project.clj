@@ -35,7 +35,7 @@
                                   [org.openvoxproject/trapperkeeper-status "1.3.0"]
                                   [org.openvoxproject/http-client "2.2.0"]
                                   [org.bouncycastle/bcpkix-jdk18on "1.83"]
-                                  [org.openvoxproject/trapperkeeper-webserver-jetty10 "1.1.0"]]}}
+                                  [org.openvoxproject/trapperkeeper-webserver-jetty10 "1.1.2"]]}}
 
   :aliases {"example" ["run" "-m" "example.comidi-metrics-web-app"]
             "example-data" ["run" "-m" "example.traffic-generator"]})
