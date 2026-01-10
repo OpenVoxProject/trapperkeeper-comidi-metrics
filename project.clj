@@ -22,7 +22,7 @@
   :dependencies [[org.clojure/clojure]
                  [prismatic/schema "1.4.1"]
                  [org.openvoxproject/trapperkeeper-metrics "2.1.0"]
-                 [org.openvoxproject/comidi "1.1.1"]]
+                 [org.openvoxproject/comidi "1.1.2"]]
 
   :deploy-repositories [["releases" {:url "https://clojars.org/repo"
                                      :username :env/CLOJARS_USERNAME
