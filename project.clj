@@ -31,7 +31,7 @@
 
   :profiles {:dev {:source-paths ["dev"]
                    :dependencies [[org.openvoxproject/trapperkeeper "4.3.0":classifier "test"]
-                                  [org.openvoxproject/kitchensink "3.5.4" :classifier "test"]
+                                  [org.openvoxproject/kitchensink "3.5.5" :classifier "test"]
                                   [org.openvoxproject/trapperkeeper-status "1.3.0"]
                                   [org.openvoxproject/http-client "2.2.0"]
                                   [org.bouncycastle/bcpkix-jdk18on "1.83"]
