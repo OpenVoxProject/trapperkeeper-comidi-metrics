@@ -17,7 +17,7 @@
                          [clj-time "0.15.2"]
                          [cheshire "5.13.0"]
                          [org.clojure/tools.logging "1.3.1"]
-                         [io.dropwizard.metrics/metrics-core "3.2.6"]]
+                         [io.dropwizard.metrics/metrics-core "4.2.37"]]
 
   :dependencies [[org.clojure/clojure]
                  [prismatic/schema "1.4.1"]
