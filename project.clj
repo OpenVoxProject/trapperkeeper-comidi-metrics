@@ -33,7 +33,7 @@
                    :dependencies [[org.openvoxproject/trapperkeeper "4.3.0":classifier "test"]
                                   [org.openvoxproject/kitchensink "3.5.5" :classifier "test"]
                                   [org.openvoxproject/trapperkeeper-status "1.3.0"]
-                                  [org.openvoxproject/http-client "2.2.0"]
+                                  [org.openvoxproject/http-client "2.2.2"]
                                   [org.bouncycastle/bcpkix-jdk18on "1.83"]
                                   [org.openvoxproject/trapperkeeper-webserver-jetty10 "1.1.0"]]}}
 
