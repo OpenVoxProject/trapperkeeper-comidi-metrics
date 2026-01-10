@@ -15,7 +15,7 @@
   :managed-dependencies [[org.clojure/clojure "1.12.4"]
                          [ring/ring-codec "1.3.0"]
                          [clj-time "0.15.2"]
-                         [cheshire "5.13.0"]
+                         [cheshire "6.1.0"]
                          [org.clojure/tools.logging "1.3.1"]
                          [io.dropwizard.metrics/metrics-core "3.2.6"]]
 
