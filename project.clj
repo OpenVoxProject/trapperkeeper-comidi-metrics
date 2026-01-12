@@ -8,21 +8,31 @@
 
   :pedantic? :abort
 
-  ;; These are to enforce consistent versions across dependencies of dependencies,
-  ;; and to avoid having to define versions in multiple places. If a component
-  ;; defined under :dependencies ends up causing an error due to :pedantic? :abort,
-  ;; because it is a dep of a dep with a different version, move it here.
+  ;; Generally, try to keep version pins in :managed-dependencies and the libraries
+  ;; this project actually uses in :dependencies, inheriting the version from
+  ;; :managed-dependencies. This prevents endless version conflicts due to deps of deps.
+  ;; Renovate should keep the versions largely in sync between projects.
   :managed-dependencies [[org.clojure/clojure "1.12.4"]
-                         [ring/ring-codec "1.3.0"]
-                         [clj-time "0.15.2"]
-                         [cheshire "5.13.0"]
                          [org.clojure/tools.logging "1.3.1"]
-                         [io.dropwizard.metrics/metrics-core "3.2.6"]]
+                         [cheshire "5.13.0"]
+                         [clj-time "0.15.2"]
+                         [commons-codec "1.19.0"]
+                         [io.dropwizard.metrics/metrics-core "3.2.6"]
+                         [org.bouncycastle/bcpkix-jdk18on "1.83"]
+                         [org.openvoxproject/comidi "1.1.1"]
+                         [org.openvoxproject/http-client "2.2.0"]
+                         [org.openvoxproject/kitchensink "3.5.5" :classifier "test"]
+                         [org.openvoxproject/trapperkeeper "4.3.0" :classifier "test"]
+                         [org.openvoxproject/trapperkeeper-metrics "2.1.0"]
+                         [org.openvoxproject/trapperkeeper-status "1.3.0"]
+                         [org.openvoxproject/trapperkeeper-webserver-jetty10 "1.1.0"]
+                         [prismatic/schema "1.4.1"]
+                         [ring/ring-codec "1.3.0"]]
 
   :dependencies [[org.clojure/clojure]
-                 [prismatic/schema "1.4.1"]
-                 [org.openvoxproject/trapperkeeper-metrics "2.1.0"]
-                 [org.openvoxproject/comidi "1.1.1"]]
+                 [org.openvoxproject/comidi]
+                 [org.openvoxproject/trapperkeeper-metrics]
+                 [prismatic/schema]]
 
   :deploy-repositories [["releases" {:url "https://clojars.org/repo"
                                      :username :env/CLOJARS_USERNAME
@@ -30,12 +40,12 @@
                                      :sign-releases false}]]
 
   :profiles {:dev {:source-paths ["dev"]
-                   :dependencies [[org.openvoxproject/trapperkeeper "4.3.0":classifier "test"]
-                                  [org.openvoxproject/kitchensink "3.5.5" :classifier "test"]
-                                  [org.openvoxproject/trapperkeeper-status "1.3.0"]
-                                  [org.openvoxproject/http-client "2.2.0"]
-                                  [org.bouncycastle/bcpkix-jdk18on "1.83"]
-                                  [org.openvoxproject/trapperkeeper-webserver-jetty10 "1.1.0"]]}}
+                   :dependencies [[org.bouncycastle/bcpkix-jdk18on]
+                                  [org.openvoxproject/http-client]
+                                  [org.openvoxproject/kitchensink :classifier "test"]
+                                  [org.openvoxproject/trapperkeeper :classifier "test"]
+                                  [org.openvoxproject/trapperkeeper-status]
+                                  [org.openvoxproject/trapperkeeper-webserver-jetty10]]}}
 
   :aliases {"example" ["run" "-m" "example.comidi-metrics-web-app"]
             "example-data" ["run" "-m" "example.traffic-generator"]})
