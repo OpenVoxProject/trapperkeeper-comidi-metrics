@@ -13,6 +13,7 @@
   ;; :managed-dependencies. This prevents endless version conflicts due to deps of deps.
   ;; Renovate should keep the versions largely in sync between projects.
   :managed-dependencies [[org.clojure/clojure "1.12.4"]
+                         [org.clojure/java.jmx "1.1.1"]
                          [org.clojure/tools.logging "1.3.1"]
                          [org.clojure/tools.macro "0.2.2"]
                          [cheshire "5.13.0"]
@@ -23,13 +24,18 @@
                          [org.openvoxproject/comidi "1.1.2"]
                          [org.openvoxproject/http-client "2.2.3"]
                          [org.openvoxproject/i18n "1.0.3"]
+                         [org.openvoxproject/kitchensink "3.5.5"]
                          [org.openvoxproject/kitchensink "3.5.5" :classifier "test"]
+                         [org.openvoxproject/trapperkeeper "4.3.2"]
                          [org.openvoxproject/trapperkeeper "4.3.2" :classifier "test"]
                          [org.openvoxproject/trapperkeeper-metrics "2.1.0"]
                          [org.openvoxproject/trapperkeeper-status "1.3.0"]
-                         [org.openvoxproject/trapperkeeper-webserver-jetty10 "1.1.0"]
+                         [org.openvoxproject/trapperkeeper-webserver-jetty10 "1.1.3"]
+                         [org.ring-clojure/ring-core-protocols "1.15.3"]
+                         [org.ring-clojure/ring-websocket-protocols "1.15.3"]
                          [prismatic/schema "1.4.1"]
-                         [ring/ring-codec "1.3.0"]]
+                         [ring/ring-codec "1.3.0"]
+                         [ring/ring-core "1.15.3"]]
 
   :dependencies [[org.clojure/clojure]
                  [org.openvoxproject/comidi]
