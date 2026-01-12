@@ -16,7 +16,7 @@
                          [org.clojure/tools.logging "1.3.1"]
                          [cheshire "5.13.0"]
                          [clj-time "0.15.2"]
-                         [commons-codec "1.19.0"]
+                         [commons-codec "1.20.0"]
                          [io.dropwizard.metrics/metrics-core "3.2.6"]
                          [org.bouncycastle/bcpkix-jdk18on "1.83"]
                          [org.openvoxproject/comidi "1.1.1"]
