@@ -1,4 +1,4 @@
-(defproject org.openvoxproject/trapperkeeper-comidi-metrics "1.0.2"
+(defproject org.openvoxproject/trapperkeeper-comidi-metrics "1.0.3-SNAPSHOT"
   :description "Comidi/HTTP Metrics for Trapperkeeper"
   :url "http://github.com/openvoxproject/trapperkeeper-comidi-metrics"
   :license {:name "Apache-2.0"
