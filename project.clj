@@ -37,7 +37,7 @@
                          [org.slf4j/slf4j-api "2.0.17"]
                          [prismatic/schema "1.4.1"]
                          [ring/ring-codec "1.3.0"]
-                         [ring/ring-core "1.14.2"]]
+                         [ring/ring-core "1.15.3"]]
 
   :dependencies [[org.clojure/clojure]
                  [org.openvoxproject/comidi]
