@@ -31,7 +31,7 @@
                          [org.openvoxproject/trapperkeeper "4.3.2" :classifier "test"]
                          [org.openvoxproject/trapperkeeper-metrics "2.1.7"]
                          [org.openvoxproject/trapperkeeper-status "1.3.2"]
-                         [org.openvoxproject/trapperkeeper-webserver-jetty10 "1.1.3"]
+                         [org.openvoxproject/trapperkeeper-webserver-jetty10 "1.1.4"]
                          [org.ring-clojure/ring-core-protocols "1.14.2"]
                          [org.ring-clojure/ring-websocket-protocols "1.14.2"]
                          [org.slf4j/slf4j-api "2.0.17"]
