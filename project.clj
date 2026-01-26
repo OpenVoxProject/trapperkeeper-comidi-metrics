@@ -20,7 +20,7 @@
                          [clj-time "0.15.2"]
                          [commons-codec "1.20.0"]
                          [commons-io "2.21.0"]
-                         [io.dropwizard.metrics/metrics-core "3.2.6"]
+                         [io.dropwizard.metrics/metrics-core "4.2.38"]
                          [org.bouncycastle/bcpkix-jdk18on "1.83"]
                          [org.openvoxproject/comidi "1.1.2"]
                          [org.openvoxproject/http-client "2.2.3"]
