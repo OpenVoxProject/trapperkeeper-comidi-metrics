@@ -23,7 +23,7 @@
                          [io.dropwizard.metrics/metrics-core "3.2.6"]
                          [org.bouncycastle/bcpkix-jdk18on "1.83"]
                          [org.openvoxproject/comidi "1.1.2"]
-                         [org.openvoxproject/http-client "2.2.3"]
+                         [org.openvoxproject/http-client "2.2.5"]
                          [org.openvoxproject/i18n "1.0.3"]
                          [org.openvoxproject/kitchensink "3.5.5"]
                          [org.openvoxproject/kitchensink "3.5.5" :classifier "test"]
