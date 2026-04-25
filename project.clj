@@ -18,7 +18,7 @@
                          [org.clojure/tools.macro "0.2.2"]
                          [cheshire "6.2.0"]
                          [clj-time "0.15.2"]
-                         [commons-codec "1.21.0"]
+                         [commons-codec "1.22.0"]
                          [commons-io "2.22.0"]
                          [io.dropwizard.metrics/metrics-core "3.2.6"]
                          [org.bouncycastle/bcpkix-jdk18on "1.84"]
