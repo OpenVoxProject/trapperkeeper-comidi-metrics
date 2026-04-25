@@ -29,7 +29,7 @@
                          [org.openvoxproject/kitchensink "3.5.7" :classifier "test"]
                          [org.openvoxproject/trapperkeeper "4.3.5"]
                          [org.openvoxproject/trapperkeeper "4.3.5" :classifier "test"]
-                         [org.openvoxproject/trapperkeeper-metrics "2.1.9"]
+                         [org.openvoxproject/trapperkeeper-metrics "2.1.11"]
                          [org.openvoxproject/trapperkeeper-status "1.3.4"]
                          [org.openvoxproject/trapperkeeper-webserver-jetty10 "1.1.8"]
                          [org.ring-clojure/ring-core-protocols "1.14.2"]
