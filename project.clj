@@ -1,4 +1,4 @@
-(defproject org.openvoxproject/trapperkeeper-comidi-metrics "1.0.8-SNAPSHOT"
+(defproject org.openvoxproject/trapperkeeper-comidi-metrics "1.1.0-SNAPSHOT"
   :description "Comidi/HTTP Metrics for Trapperkeeper"
   :url "http://github.com/openvoxproject/trapperkeeper-comidi-metrics"
   :license {:name "Apache-2.0"
@@ -29,9 +29,9 @@
                          [org.openvoxproject/kitchensink "3.5.7" :classifier "test"]
                          [org.openvoxproject/trapperkeeper "4.3.5"]
                          [org.openvoxproject/trapperkeeper "4.3.5" :classifier "test"]
-                         [org.openvoxproject/trapperkeeper-metrics "2.1.9"]
-                         [org.openvoxproject/trapperkeeper-status "1.3.4"]
-                         [org.openvoxproject/trapperkeeper-webserver-jetty10 "1.1.8"]
+                         [org.openvoxproject/trapperkeeper-metrics "2.2.0"]
+                         [org.openvoxproject/trapperkeeper-status "1.4.0"]
+                         [org.openvoxproject/trapperkeeper-webserver "10.0.0"]
                          [org.ring-clojure/ring-core-protocols "1.14.2"]
                          [org.ring-clojure/ring-websocket-protocols "1.14.2"]
                          [org.slf4j/slf4j-api "2.0.17"]
@@ -55,7 +55,7 @@
                                   [org.openvoxproject/kitchensink :classifier "test"]
                                   [org.openvoxproject/trapperkeeper :classifier "test"]
                                   [org.openvoxproject/trapperkeeper-status]
-                                  [org.openvoxproject/trapperkeeper-webserver-jetty10]]}}
+                                  [org.openvoxproject/trapperkeeper-webserver]]}}
 
   :aliases {"example" ["run" "-m" "example.comidi-metrics-web-app"]
             "example-data" ["run" "-m" "example.traffic-generator"]})
