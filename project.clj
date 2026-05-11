@@ -32,7 +32,7 @@
                          [org.openvoxproject/trapperkeeper-metrics "2.3.0"]
                          [org.openvoxproject/trapperkeeper-status "1.5.0"]
                          [org.openvoxproject/trapperkeeper-webserver "12.0.0"]
-                         [org.ring-clojure/ring-core-protocols "1.14.2"]
+                         [org.ring-clojure/ring-core-protocols "1.15.4"]
                          [org.ring-clojure/ring-websocket-protocols "1.14.2"]
                          [org.slf4j/slf4j-api "2.0.17"]
                          [prismatic/schema "1.4.1"]
