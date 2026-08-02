@@ -1,11 +1,17 @@
 (ns puppetlabs.metrics.http-test
-  (:import (com.codahale.metrics MetricRegistry RatioGauge Timer Gauge))
+  (:import (io.dropwizard.metrics5 MetricName MetricRegistry RatioGauge Timer Gauge)
+           (java.util.concurrent TimeUnit))
   (:require [clojure.test :refer :all]
             [puppetlabs.metrics.http :refer :all]
             [schema.test :as schema-test]
             [puppetlabs.comidi :as comidi]))
 
 (use-fixtures :once schema-test/validate-schemas)
+
+(defn metric
+  "Fetch a metric from a Dropwizard 5 registry map using a string metric name."
+  [metrics-map metric-name]
+  (.get metrics-map (MetricName/parse metric-name)))
 
 (deftest test-initialize-http-metrics!
   (testing "initialize-http-metrics! should create metrics for all specified HTTP endpoints"
@@ -20,16 +26,16 @@
           registry      (MetricRegistry.)
           http-metrics  (initialize-http-metrics! registry "localhost" route-meta)
           metrics-map   (.getMetrics registry)
-          num-cpus      (.get metrics-map "puppetlabs.localhost.num-cpus")]
+          num-cpus      (metric metrics-map "puppetlabs.localhost.num-cpus")]
       (is (= #{"foo-something" "bar-:bar" "baz-:baz-bam-:bam" :other}
             (-> http-metrics :route-timers keys set)))
       (is (instance? Gauge num-cpus))
       (is (= (.availableProcessors (Runtime/getRuntime)) (.getValue num-cpus)))
-      (is (instance? Timer (.get metrics-map "puppetlabs.localhost.http.other-requests")))
-      (is (instance? RatioGauge (.get metrics-map "puppetlabs.localhost.http.other-percentage")))
-      (is (instance? RatioGauge (.get metrics-map "puppetlabs.localhost.http.foo-something-percentage")))
-      (is (instance? RatioGauge (.get metrics-map "puppetlabs.localhost.http.bar-:bar-percentage")))
-      (is (instance? RatioGauge (.get metrics-map "puppetlabs.localhost.http.baz-:baz-bam-:bam-percentage"))))))
+      (is (instance? Timer (metric metrics-map "puppetlabs.localhost.http.other-requests")))
+      (is (instance? RatioGauge (metric metrics-map "puppetlabs.localhost.http.other-percentage")))
+      (is (instance? RatioGauge (metric metrics-map "puppetlabs.localhost.http.foo-something-percentage")))
+      (is (instance? RatioGauge (metric metrics-map "puppetlabs.localhost.http.bar-:bar-percentage")))
+      (is (instance? RatioGauge (metric metrics-map "puppetlabs.localhost.http.baz-:baz-bam-:bam-percentage"))))))
 
 (deftest test-routes-with-same-name
   (testing "should re-use metrics objects for routes that only differ by HTTP verb"
@@ -61,8 +67,8 @@
         total-timer   (:total-timer http-metrics)
         foo-timer     (get-in http-metrics [:route-timers "foo-:foo"])
         other-timer   (get-in http-metrics [:route-timers :other])
-        foo-ratio     (.get metrics-map "puppetlabs.localhost.http.foo-:foo-percentage")
-        other-ratio   (.get metrics-map "puppetlabs.localhost.http.other-percentage")]
+        foo-ratio     (metric metrics-map "puppetlabs.localhost.http.foo-:foo-percentage")
+        other-ratio   (metric metrics-map "puppetlabs.localhost.http.other-percentage")]
     (testing "increments endpoint timer when route matches"
       (ring-app {:uri "/foo/something"})
       (is (= 0 (.getCount other-timer)))
@@ -112,3 +118,17 @@
               (:mean foo-summary)))
         (is (> (:mean bar-summary)
               (-> summary :routes :total :mean)))))))
+
+(deftest test-assoc-route-summary-uses-exact-sum
+  (testing "aggregate is derived from Timer/getSum, not mean*count"
+    (let [registry (MetricRegistry.)
+          timer    (.timer registry "focused-route")]
+      ;; 1ms + 2ms gives exact 3ms sum; mean truncation to millis makes mean*count differ.
+      (.update timer 1 TimeUnit/MILLISECONDS)
+      (.update timer 2 TimeUnit/MILLISECONDS)
+      (let [summary       (#'puppetlabs.metrics.http/assoc-route-summary {} "focused-route" timer)
+            route-summary (get summary "focused-route")]
+        (is (= 2 (:count route-summary)))
+        (is (= 3 (:aggregate route-summary)))
+        (is (not= (:aggregate route-summary)
+                  (* (:mean route-summary) (:count route-summary))))))))
