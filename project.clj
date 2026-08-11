@@ -35,7 +35,7 @@
                          [org.ring-clojure/ring-core-protocols "1.15.5"]
                          [org.ring-clojure/ring-websocket-protocols "1.15.5"]
                          [org.slf4j/slf4j-api "2.0.18"]
-                         [prismatic/schema "1.4.1"]
+                         [prismatic/schema "1.4.2"]
                          [ring/ring-codec "1.3.0"]
                          [ring/ring-core "1.15.5"]]
 
