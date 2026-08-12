@@ -30,7 +30,7 @@
                          [org.openvoxproject/trapperkeeper "5.0.5"]
                          [org.openvoxproject/trapperkeeper "5.0.5" :classifier "test"]
                          [org.openvoxproject/trapperkeeper-metrics "2.3.2"]
-                         [org.openvoxproject/trapperkeeper-status "1.5.0"]
+                         [org.openvoxproject/trapperkeeper-status "1.5.1"]
                          [org.openvoxproject/trapperkeeper-webserver "12.1.1"]
                          [org.ring-clojure/ring-core-protocols "1.15.5"]
                          [org.ring-clojure/ring-websocket-protocols "1.15.5"]
