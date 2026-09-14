@@ -2,7 +2,7 @@
 
 (ns puppetlabs.metrics.http
   (:import (java.util.concurrent TimeUnit)
-           (com.codahale.metrics Timer Counter Histogram MetricRegistry))
+           (io.dropwizard.metrics5 Timer Counter Histogram MetricRegistry))
   (:require [schema.core :as schema]
             [puppetlabs.comidi :as comidi]
             [puppetlabs.metrics :as metrics]))
@@ -55,7 +55,7 @@
   (if (contains? acc endpoint)
     acc
     (let [timer (.timer registry (metric-name-fn (str endpoint "-requests")))]
-      (.register registry
+      (metrics/register registry
         (metric-name-fn (str endpoint "-percentage"))
         (metrics/metered-ratio timer total-requests))
       (assoc acc endpoint timer))))
@@ -67,7 +67,7 @@
    metric-name-fn :- (schema/pred ifn?)
    route-names :- [schema/Str]]
   (let [other-timer (.timer registry (metric-name-fn "other-requests"))]
-    (.register registry (metric-name-fn "other-percentage") (metrics/metered-ratio other-timer total-requests))
+    (metrics/register registry (metric-name-fn "other-percentage") (metrics/metered-ratio other-timer total-requests))
     (reduce (partial register-metrics-for-endpoint registry total-requests metric-name-fn)
       {:other other-timer}
       route-names)))
@@ -82,20 +82,24 @@
     (:other route-timers)))
 
 (schema/defn ^:always-validate assoc-route-summary :- {RouteIdentifier RouteSummary}
-  "Add summary information for the given route-id to the accumulator map."
+  "Add summary information for the given route-id to the accumulator map.
+  Aggregate intentionally uses Timer#getSum for exact cumulative duration,
+  (in previous version of dropwizard 3.x, it was reconstructed from
+  sampled mean*count, which is not exact)."
   [acc :- {RouteIdentifier RouteSummary}
    route-id :- RouteIdentifier
    route-timer :- Timer]
-  (let [count (.getCount route-timer)
-        mean  (->> route-timer
-                .getSnapshot
-                .getMean
-                (.toMillis TimeUnit/NANOSECONDS))]
+  (let [count     (.getCount route-timer)
+        mean      (->> route-timer
+                    .getSnapshot
+                    .getMean
+                    (.toMillis TimeUnit/NANOSECONDS))
+        aggregate (.toMillis TimeUnit/NANOSECONDS (.getSum route-timer))]
     (assoc acc route-id
-               {:route-id route-id
-                :count    count
-                :mean     mean
-                :aggregate (* mean count)})))
+               {:route-id  route-id
+                :count     count
+                :mean      mean
+                :aggregate aggregate})))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Public
