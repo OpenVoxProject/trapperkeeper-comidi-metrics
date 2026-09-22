@@ -24,7 +24,7 @@
                          [org.bouncycastle/bcpkix-jdk18on "1.84"]
                          [org.openvoxproject/comidi "1.1.4"]
                          [org.openvoxproject/http-client "2.4.1"]
-                         [org.openvoxproject/i18n "1.0.5"]
+                         [org.openvoxproject/i18n "1.0.6"]
                          [org.openvoxproject/kitchensink "3.5.8"]
                          [org.openvoxproject/kitchensink "3.5.8" :classifier "test"]
                          [org.openvoxproject/trapperkeeper "5.0.5"]
