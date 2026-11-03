@@ -16,7 +16,7 @@
                          [org.clojure/java.jmx "1.1.1"]
                          [org.clojure/tools.logging "1.3.1"]
                          [org.clojure/tools.macro "0.2.2"]
-                         [cheshire "6.2.0"]
+                         [cheshire "6.2.1"]
                          [clj-time "0.15.2"]
                          [commons-codec "1.23.0"]
                          [commons-io "2.22.0"]
