@@ -21,7 +21,7 @@
                          [commons-codec "1.23.0"]
                          [commons-io "2.22.0"]
                          [io.dropwizard.metrics/metrics-core "3.2.6"]
-                         [org.bouncycastle/bcpkix-jdk18on "1.86"]
+                         [org.bouncycastle/bcpkix-jdk18on "1.87"]
                          [org.openvoxproject/comidi "1.1.4"]
                          [org.openvoxproject/http-client "2.4.1"]
                          [org.openvoxproject/i18n "1.0.6"]
